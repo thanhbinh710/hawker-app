@@ -1,0 +1,23 @@
+{
+  "name": "hawker-app",
+  "version": "1.0.0",
+  "description": "A full stack prototype aim to sustain the hawker culture and raise the profile of hawkers -using technology to create new values to budding hawkers and make \"hawker-ing\" cool again.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhbinh710/hawker-app.git"
+  },
+  "keywords": [
+    "mern",
+    "hawke"
+  ],
+  "author": "Binh Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thanhbinh710/hawker-app/issues"
+  },
+  "homepage": "https://github.com/thanhbinh710/hawker-app#readme"
+}
