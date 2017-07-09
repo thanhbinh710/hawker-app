@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { fetchPosts } from '../actions';
 
 import NavBar from './nav_bar';
+import PageHeader from './header';
 
 class FeedsPage extends Component {
 
@@ -54,11 +55,9 @@ class FeedsPage extends Component {
 
 	render() {
 		return (
-			<div className="home_page">
+			<div className="feeds_page">
 				<NavBar />
-				<header>
-					<h2 className="page_title">My Feeds</h2>
-				</header>
+				<PageHeader />
 
 				<div className="container body_content">
 					<div className="row justify-content-center">

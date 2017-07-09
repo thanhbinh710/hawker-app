@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_ACTIVE_POST = 'fetch_active_post';
 export const FETCH_PROFILE = 'fetch_profile';
+export const LOGIN_USER = 'login_user';
 
 // Fetch all posts from backend
 export function fetchPosts() {
@@ -33,3 +34,20 @@ export function fetchProfile(id) {
 		payload: request
 	};
 }
+
+export function login(username) {
+
+	return {
+		type: LOGIN_USER,
+		payload: username
+	};
+}
+
+export function logout() {
+
+	return {
+		type: LOGIN_USER,
+		payload: null
+	};
+}
+

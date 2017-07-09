@@ -11,6 +11,7 @@ import ExplorePage from './components/explore_page';
 import HawkerGOPage from './components/hawkergo_page';
 import ProfilePage from './components/profile_page';
 import PostPage from './components/post_page';
+import LoginPage from './components/login_page';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -23,6 +24,7 @@ ReactDOM.render(
                     <Route path="/hawkergo" component={HawkerGOPage} />
                     <Route path="/profile/:id" component={ProfilePage} />
                     <Route path="/post/:id" component={PostPage} />
+                    <Route path="/login" component={LoginPage} />
                     <Route path="/" component={FeedsPage} />
                 </Switch>
             </div>

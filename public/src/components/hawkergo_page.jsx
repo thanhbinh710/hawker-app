@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 import NavBar from './nav_bar';
+import PageHeader from './header';
 
 class HawkerGOPage extends Component {
 
@@ -18,11 +19,9 @@ class HawkerGOPage extends Component {
 	
 	render() {
 		return (
-			<div className="home_page">
+			<div className="hawkergo_page">
 				<NavBar />
-				<header>
-					<h2 className="page_title">HawkerGO</h2>
-				</header>
+				<PageHeader />
 
 				<div>TO BE DONE</div>
 			</div>

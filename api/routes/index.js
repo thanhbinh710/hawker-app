@@ -14,9 +14,13 @@ router
   .get( ctrlPosts.postGetOne);
 
 // Users
-// router
-//     .route('/users/login')
-//     .post(ctrlUsers.login);
+router
+    .route('/login')
+    .post(ctrlUsers.login);
+
+router
+    .route('/register')
+    .post(ctrlUsers.register);
 
 router
   	.route('/getProfile/:id')

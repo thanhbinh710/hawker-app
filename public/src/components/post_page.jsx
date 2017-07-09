@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { fetchActivePosts } from '../actions';
 
 import NavBar from './nav_bar';
+import PageHeader from './header';
 import ImageSlider from './slider';
 
 class PostPage extends Component {
@@ -57,11 +58,9 @@ class PostPage extends Component {
 
 	render() {
 		return (
-			<div className="home_page">
+			<div className="post_page">
 				<NavBar />
-				<header>
-					<h2 className="page_title">Post Page</h2>
-				</header>
+				<PageHeader />
 
 				<div className="container body_content">
 					<div className="row justify-content-center">
