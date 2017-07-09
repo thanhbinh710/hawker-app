@@ -23,7 +23,11 @@ class HawkerGOPage extends Component {
 				<NavBar />
 				<PageHeader />
 
-				<div>TO BE DONE</div>
+				<div className="row justify-content-center">
+					<div className="col-10 col-md-8 col-lg-5">
+						<div>TO BE DONE</div>
+					</div>
+				</div>
 			</div>
 		);
     }
