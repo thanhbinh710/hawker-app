@@ -14,7 +14,16 @@ Users can:
 In termninal, navigate the hawker-app folder and run these commands
 
 ```
-> npm install
 > npm start
 > access the app at http://localhost:7500
+```
+
+In case your app doesn't start, try running
+
+```
+> npm install
+```
+before 
+```
+> npm start
 ```
