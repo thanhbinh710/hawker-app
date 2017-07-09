@@ -4,6 +4,7 @@ export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_ACTIVE_POST = 'fetch_active_post';
 export const FETCH_PROFILE = 'fetch_profile';
 export const LOGIN_USER = 'login_user';
+export const FETCH_LOCATIONS = 'fetch_locations';
 
 // Fetch all posts from backend
 export function fetchPosts() {
@@ -35,6 +36,7 @@ export function fetchProfile(username) {
 	};
 }
 
+// Log in
 export function login(username) {
 
 	return {
@@ -43,6 +45,7 @@ export function login(username) {
 	};
 }
 
+// Log out
 export function logout() {
 
 	return {
@@ -51,3 +54,12 @@ export function logout() {
 	};
 }
 
+// Fetch all posts from backend
+export function fetchLocations() {
+	const request = axios.get("/api/getAllLocations");
+
+	return {
+		type: FETCH_LOCATIONS,
+		payload: request
+	};
+}

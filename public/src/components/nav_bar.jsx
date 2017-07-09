@@ -14,7 +14,7 @@ class NavBar extends Component {
 						<Link className={`${window.location.pathname === '/explore' ? 'active': ''}`} to="/explore">
 							<span className="nav_icon icon_search"></span>Explore
 						</Link>
-						<Link className={`${window.location.pathname === '/hawkergo' ? 'active': ''}`} to="/quest">
+						<Link className={`${window.location.pathname === '/hawkergo' ? 'active': ''}`} to="/hawkergo">
 							<span className="nav_icon icon-gamepad"></span>HawkerGO
 						</Link>
 					</p>

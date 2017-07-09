@@ -3,6 +3,7 @@ var router = express.Router();
 
 var ctrlPosts = require('../controllers/posts.controllers.js');
 var ctrlUsers = require('../controllers/users.controllers.js');
+var ctrlLocation = require('../controllers/locations.controllers.js');
 
 // Feeds 
 router
@@ -25,6 +26,11 @@ router
 router
   	.route('/getProfile/:username')
   	.get(ctrlUsers.getProfile);
+
+// Hawker Locations
+router
+  .route('/getAllLocations')
+  .get( ctrlLocation.locationsGetAll);
 
 
 module.exports = router;

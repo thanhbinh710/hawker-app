@@ -11,7 +11,7 @@ class PageHeader extends Component {
 		if (window.location.pathname === '/') {
 			page_title = "My Feeds";
 		} else if (window.location.pathname === '/explore') {
-			page_title = "Explore";
+			page_title = "Explore Hawkers";
 		} else if (window.location.pathname === '/hawkergo') {
 			page_title = "HawkerGO";
 		} else if (window.location.pathname === '/login') {
@@ -32,10 +32,10 @@ class PageHeader extends Component {
 			<div>
 				<header>
 					<div className="row">
-						<div className="col-9">
+						<div className="col-5 col-md-9">
 							<h2 className="page_title">{page_title}</h2>
 						</div>
-						<div className="col-3">
+						<div className="col-7 col-md-3">
 							<Link className={`login_link ${loginClass}`} to="/login">Log in</Link>
 							<div className={`welcome-text ${logoutClass}`}>
 								<Link to={`/profile/${user}`}>Welcome {user}</Link>

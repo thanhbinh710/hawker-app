@@ -52,4 +52,5 @@ process.on('SIGTERM', function() {
 // // BRING IN SCHEMAS & MODELS
 require('./users.model.js');
 require('./posts.model.js');
+require('./locations.model.js');
 

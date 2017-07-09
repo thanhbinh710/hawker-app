@@ -43,7 +43,7 @@ module.exports.postGetOne = function(req, res) {
 // const posts = [{
 // 		"post_id": "a0001",
 // 		"user_id": "0h003",
-// 		"username": "Aaryahi",
+// 		"username": "Aaryahi_701",
 // 		"user_dp": "https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/19756647_10154840116943723_1113956070817428230_n.jpg?oh=2fe6c1a94856c150c31e2c07a6f0a5d6&oe=59FE1E15",
 // 		"post_title": "Featured Food 1",
 // 		"post_excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere nunc aliquam ligula viverra viverra.",
