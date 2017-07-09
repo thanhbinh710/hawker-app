@@ -10,12 +10,12 @@ import axios from 'axios';
 import NavBar from './nav_bar';
 import PageHeader from './header';
 
-class LoginPage extends Component {
+class RegisterPage extends Component {
 	constructor(props) {
 	    super(props);
 
 	    this.state = { 
-			loginError: ""
+			registrationError: ""
 		}
 	}
 
@@ -40,20 +40,19 @@ class LoginPage extends Component {
 	}
 
 	onSubmit(values) {
-
-		axios.post("/api/login", values)
+		axios.post("/api/register", values)
 			.then(response => {
 				if(response.status === 200) {
-					this.setState({loginError: ""});
+					this.setState({registrationError: ""});
 					this.props.login(values.username);
 					this.props.history.push('/');
 				}
 			})
 			.catch(error => {
-				if(error.response.status === 401) {
-					this.setState({loginError: "Invalid username/password"});
+				if(error.response.status === 400) {
+					this.setState({registrationError: "This username is not available. Please choose another one."});
 				} else {
-					this.setState({loginError: "Ops, Something unexpected happens..."});
+					this.setState({registrationError: "Ops, Something unexpected happens..."});
 				}
 			})
 	}
@@ -70,9 +69,17 @@ class LoginPage extends Component {
 
 				<div className="row justify-content-center">
 					<div className="col-10 col-md-8 col-lg-5">
-						<div className="error form-error">{this.state.loginError}</div>
+						<div className="error form-error">{this.state.registrationError}</div>
 
 						<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+							<p>Your Full name:</p>
+							<Field 
+								placeholder="Full name"
+								name="name"
+								type="text"
+								component={this.renderInputField}
+							/>
+
 							<p>Your username:</p>
 							<Field 
 								placeholder="username"
@@ -91,9 +98,6 @@ class LoginPage extends Component {
 
 							<button action="submit" className="btn btn-block btn-submit">Submit</button>
 						</form>
-						<div className="register_link-container">
-							<Link className="register_link" to="/register">Dont' have an account yet? Click here to sign up with us</Link>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -105,6 +109,13 @@ class LoginPage extends Component {
 // Validation methods for the input values
 function validate(values) {
 	const errors = {};
+
+	if(!values.name) {
+		errors.name = "Please enter your name";
+	} else {
+		if(values.name.length < 3) errors.name = "Please include at least 3 characters of your name";
+		if (/[\[\]\\/{}|\\<>]/.test(values.name) == true) {errors.name = "Please obmit any special character from your name.";}   
+	}
 
 	if(!values.username) {
 		errors.username = "Please enter your username";
@@ -126,9 +137,9 @@ function validate(values) {
 
 export default reduxForm({
   	validate,
-	form: 'LogInForm'
+	form: 'RegisterForm'
 })(
-	connect(null, { login })(LoginPage)
+	connect(null, { login })(RegisterPage)
 );
 
 

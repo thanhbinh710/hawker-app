@@ -53,27 +53,35 @@ module.exports.register = function(req, res) {
 			comments: [],
 		}, function(err, response) {
 			if (err) {
-					console.log("Error registering user", err);
+				console.log("Error registering user", err);
+				if(err.code === 11000) {
+					res
+						.status(400)
+						.json({"message": err});
+				} else {
 					res
 						.status(500)
 						.json({"message": err});
-				} else {
-					console.log("User Registered", response);
-					
-					res
-						.status(200)
-						.json({"username": username});
-
 				}
+					
+			} else {
+				console.log("User Registered", response);
+					
+				res
+					.status(200)
+					.json({"username": req.body.username});
+
+			}
 		})
 };
 
 // Return the profile with the corresponding id if it exists
 module.exports.getProfile = function(req, res) {
-	var id = req.params.id;
+	var username = req.params.username;
+	console.log("username", username);
 
 	User
-		.findOne({"user_id": id}, { "passcode" :0 }, function(err, response) {
+		.findOne({"username": username}, { "passcode" :0 }, function(err, response) {
 			if (err) {
 				console.log("Error finding user, ", err);
 				res

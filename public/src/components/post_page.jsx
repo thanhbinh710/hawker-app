@@ -43,7 +43,7 @@ class PostPage extends Component {
 				<div>
 					<h3 className="post_title" dangerouslySetInnerHTML={{__html: activePost.post_title}}></h3>
 					<div className="author">
-						<Link className="post_link" to={`/profile/${activePost.user_id}`}>
+						<Link className="post_link" to={`/profile/${activePost.username}`}>
 							<img className="img-user" src={activePost.user_dp} alt={activePost.username} />
 							By <span className="username">{activePost.username}</span>
 						</Link>

@@ -26,8 +26,8 @@ export function fetchActivePosts(id) {
 }
 
 // Fetch one profile based on the user_id provided
-export function fetchProfile(id) {
-	const request = axios.get(`/api/getProfile/${id}`);
+export function fetchProfile(username) {
+	const request = axios.get(`/api/getProfile/${username}`);
 
 	return {
 		type: FETCH_PROFILE,

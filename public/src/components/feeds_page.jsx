@@ -34,7 +34,7 @@ class FeedsPage extends Component {
 					<div className="card" key={post.post_id}>
 					    <img className="card-img-top img-fluid" src={post.post_media[0]} alt={post.post_title} />
 					    <div className="card-block">
-							<Link className="post_link" to={`/profile/${post.user_id}`}>
+							<Link className="post_link" to={`/profile/${post.username}`}>
 						    	<div className="card-user">
 						    		<img className="card-img-user" src={post.user_dp} alt={post.username} />
 					    		</div>

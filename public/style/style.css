@@ -187,6 +187,10 @@ a, a:hover {
     justify-content: flex-end;
 }
 
+.welcome-text a {
+    color: rgba(255,255,255,.9);
+}
+
 .login_link {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.25rem;
@@ -206,6 +210,15 @@ a, a:hover {
     background: #27AE60;
     color: #fff;
     margin-top: 2rem;
+}
+
+.register_link-container {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.register_link:hover {
+    color: #E74C3C;
 }
 
 /*============================================================================================*/

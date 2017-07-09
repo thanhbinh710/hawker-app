@@ -16,6 +16,8 @@ class PageHeader extends Component {
 			page_title = "HawkerGO";
 		} else if (window.location.pathname === '/login') {
 			page_title = "Log in";
+		} else if (window.location.pathname === '/register') {
+			page_title = "Register";
 		} else if (_.includes(window.location.pathname, 'profile')) {
 			page_title = "Profile Page";
 		} else if (_.includes(window.location.pathname, 'post')) {
@@ -25,9 +27,6 @@ class PageHeader extends Component {
 		var { user } = this.props;
 		var loginClass = (!user) ? 'show' : 'hide';
 		var logoutClass = (!user) ? 'hide' : 'show';
-		if(user) {
-			console.log("user", user);
-		}
 
 		return (
 			<div>
@@ -39,7 +38,7 @@ class PageHeader extends Component {
 						<div className="col-3">
 							<Link className={`login_link ${loginClass}`} to="/login">Log in</Link>
 							<div className={`welcome-text ${logoutClass}`}>
-								Welcome {user}
+								<Link to={`/profile/${user}`}>Welcome {user}</Link>
 								<a className="logout_link" onClick={() => this.props.logout()}>Log out</a>
 							</div>
 						</div>

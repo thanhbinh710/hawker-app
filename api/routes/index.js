@@ -23,7 +23,7 @@ router
     .post(ctrlUsers.register);
 
 router
-  	.route('/getProfile/:id')
+  	.route('/getProfile/:username')
   	.get(ctrlUsers.getProfile);
 
 

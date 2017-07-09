@@ -17,8 +17,8 @@ class ProfilePage extends Component {
   	}
 
   	componentDidMount() {
-  		const { id } = this.props.match.params;
-		this.props.fetchProfile(id);
+  		const { username } = this.props.match.params;
+		this.props.fetchProfile(username);
 	}
 	
 	renderSlider(imgSlider) {
