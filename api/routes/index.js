@@ -32,5 +32,9 @@ router
   .route('/getAllLocations')
   .get( ctrlLocation.locationsGetAll);
 
+router
+  .route('/getDistance/:origin')
+  .get( ctrlLocation.getAllDistance);
+
 
 module.exports = router;

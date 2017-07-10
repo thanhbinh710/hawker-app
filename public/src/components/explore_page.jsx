@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { fetchLocations } from '../actions';
+import { nearestLocation } from '../actions';
 import axios from 'axios';
 
 import NavBar from './nav_bar';
@@ -23,18 +23,31 @@ class ExplorePage extends Component {
 		this.useCurrentLocation = this.useCurrentLocation.bind(this); 
   	}
 
-  	componentDidMount() {
-		this.props.fetchLocations();
-	}
-
 	onInputChange(location) {
-		this.setState({location});	
+		this.setState({location});
 	}
 
 	findNearestHawkerCenter() {
-		var { locations } = this.props;
-		console.log("location", this.state.location);
-		console.log("locations", locations);
+
+		if(!this.state.location) {
+			this.setState({locationErr: "Please key in a value for your location"});
+		} else {
+			const request = axios.get(`/api/getDistance/${this.state.location}`)
+				.then(response => {
+					if(response.status === 200) {
+						this.setState({locationErr: ""});
+						
+						var hawkerDistance = response.data
+						hawkerDistance.sort(function(a, b){return a.hawker_distance - b.hawker_distance });
+						this.props.nearestLocation(hawkerDistance[0]);
+					}
+				}).catch(error => {
+					console.log(error);
+					this.setState({locationErr: "Ops. Something went wrong"});
+				});
+
+		
+		}
 	}
 
 	useCurrentLocation() {
@@ -53,12 +66,30 @@ class ExplorePage extends Component {
 	    setTimeout(function() {
 	    	// Error setting state
     		this.setState({location: currentLoc});
-    	}, 500);
+    	}, 1000);
 
+	}
+
+	renderMap() {
+		var { nearestLoc } = this.props;
+		
+		if(!nearestLoc) {
+			return (
+				<div className='helptext'>Please key in your location to search for the nearest Hawker Center</div>
+			)
+		} else {
+			return (
+				<div>
+					<p>{nearestLoc.hawker_location}</p>
+					<p>{nearestLoc.hawker_distance}</p>
+				</div>
+			)
+		}
 	}
 
 	render() {
 		const { handleSubmit } = this.props;
+		
 
 		return (
 			<div className="explore_page">
@@ -82,7 +113,10 @@ class ExplorePage extends Component {
 							<button className="btn btn-find" onClick={()=> this.findNearestHawkerCenter()}>Find A Hawker</button>
 						</div>
 
-						
+						<div className="map-container">
+							{this.renderMap()}
+						</div>
+
 
 					</div>
 				</div>
@@ -91,18 +125,14 @@ class ExplorePage extends Component {
     }
 }
 
-
-
 function mapStateToProps(state) {
 	return {
-    	locations: state.locations
-  	};
+		nearestLoc: state.nearestLoc
+	};
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ fetchLocations }, dispatch);
+	return bindActionCreators({ nearestLocation }, dispatch);
 }
 
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(ExplorePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ExplorePage)

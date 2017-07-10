@@ -4,7 +4,7 @@ export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_ACTIVE_POST = 'fetch_active_post';
 export const FETCH_PROFILE = 'fetch_profile';
 export const LOGIN_USER = 'login_user';
-export const FETCH_LOCATIONS = 'fetch_locations';
+export const NEAREST_LOCATION = 'nearest_location';
 
 // Fetch all posts from backend
 export function fetchPosts() {
@@ -54,12 +54,11 @@ export function logout() {
 	};
 }
 
-// Fetch all posts from backend
-export function fetchLocations() {
-	const request = axios.get("/api/getAllLocations");
+// Set nearest location
+export function nearestLocation(location) {
 
 	return {
-		type: FETCH_LOCATIONS,
-		payload: request
+		type: NEAREST_LOCATION,
+		payload: location
 	};
 }

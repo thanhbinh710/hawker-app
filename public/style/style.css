@@ -137,6 +137,11 @@ footer .nav_icon {
     background-size: contain;
 }
 
+/*-------- 1.6 Explore page --------*/
+.map-container {
+    margin-top: 10vh;
+    margin-bottom: 15vh;
+}
 /*============================================================================================*/
 /* 2. TYPOGRAPHY */
 /*============================================================================================*/
@@ -155,7 +160,7 @@ footer .nav_icon {
 }
 
 .helptext {
-    line-height: 1.5rem;
+    font-style: italic;
 }
 
 .error {
