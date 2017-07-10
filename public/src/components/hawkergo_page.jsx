@@ -25,7 +25,9 @@ class HawkerGOPage extends Component {
 
 				<div className="row justify-content-center">
 					<div className="col-10 col-md-8 col-lg-5">
-						<div>TO BE DONE</div>
+						<div className="hawkergo_content">
+							<p>This is a mini location-based game that can be played when you are at certain hawker center that is quite similar to PokemonGO</p>
+						</div>
 					</div>
 				</div>
 			</div>
