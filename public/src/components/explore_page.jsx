@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { nearestLocation } from '../actions';
 import axios from 'axios';
+import GoogleMapReact from 'google-map-react';
 
 import NavBar from './nav_bar';
 import PageHeader from './header';
@@ -80,8 +81,18 @@ class ExplorePage extends Component {
 		} else {
 			return (
 				<div>
-					<p>{nearestLoc.hawker_location}</p>
-					<p>{nearestLoc.hawker_distance}</p>
+					<p className="location-result">Hawker Location: <strong>{nearestLoc.hawker_location}</strong></p>
+					<p className="location-result">Distance from you: <strong>{nearestLoc.hawker_distance}m </strong></p>
+
+					<div className="map-container">
+						<GoogleMapReact
+							defaultCenter= {{lat: 1.2932, lng: 103.8525}}
+							defaultZoom= {15}
+						>
+						</GoogleMapReact>
+					</div>
+
+					<div><Link className="btn btn-find" to={`https://maps.google.com/?q=${nearestLoc.hawker_location}`} target="_blank">Getting there</Link></div>
 				</div>
 			)
 		}
@@ -113,7 +124,7 @@ class ExplorePage extends Component {
 							<button className="btn btn-find" onClick={()=> this.findNearestHawkerCenter()}>Find A Hawker</button>
 						</div>
 
-						<div className="map-container">
+						<div className="result-container">
 							{this.renderMap()}
 						</div>
 

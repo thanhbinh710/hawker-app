@@ -11,7 +11,7 @@ class PageHeader extends Component {
 		if (window.location.pathname === '/') {
 			page_title = "My Feeds";
 		} else if (window.location.pathname === '/explore') {
-			page_title = "Explore Hawkers";
+			page_title = "Explore";
 		} else if (window.location.pathname === '/hawkergo') {
 			page_title = "HawkerGO";
 		} else if (window.location.pathname === '/login') {

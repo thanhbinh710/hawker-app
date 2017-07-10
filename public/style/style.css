@@ -138,9 +138,14 @@ footer .nav_icon {
 }
 
 /*-------- 1.6 Explore page --------*/
+.result-container {
+    margin-top: 5vh;
+    margin-bottom: 25vh;
+}
 .map-container {
-    margin-top: 10vh;
-    margin-bottom: 15vh;
+    height: 50vh;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 /*============================================================================================*/
 /* 2. TYPOGRAPHY */
@@ -171,6 +176,11 @@ footer .nav_icon {
 
 .form-error {
     margin-top: 2rem;
+    text-align: center;
+}
+
+.location-result {
+    margin-bottom: .5rem;
     text-align: center;
 }
 

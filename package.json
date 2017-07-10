@@ -50,6 +50,7 @@
     "axios": "^0.16.1",
     "babel-preset-stage-1": "^6.1.18",
     "express": "^4.15.3",
+    "google-map-react": "^0.24.0",
     "lodash": "^3.10.1",
     "react": "^0.14.9",
     "react-dom": "^0.14.9",
