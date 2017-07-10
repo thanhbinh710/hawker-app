@@ -126,6 +126,42 @@ footer .nav_icon {
     margin-bottom: 1.75rem
 }
 
+.comments-container {
+
+}
+
+.comments {
+
+}
+
+.comment {
+    display: flex;
+    padding: 11px 15px;
+    border: 1px solid rgba(155,155,155,0.75);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.comment-user_id {
+
+}
+
+.comment-user_name {
+
+}
+
+.comment-comment {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+
+.user-thumb {
+    width: 5vw;
+    border-radius: 50%;
+}
+
 /*-------- 1.5 Login/register page --------*/
 .home_img {
     margin-top: 10vh;

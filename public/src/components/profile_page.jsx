@@ -29,6 +29,23 @@ class ProfilePage extends Component {
 		}
 	}
 
+	renderComments(comments) {
+		console.log("comments", comments);
+		if(comments) {
+			return comments.map((comment, index) => {
+				return (
+					<div key={index} className="comment">
+						<div className="comment-user_id">
+							<div className="comment-user_dp">
+								<img className="user-thumb" src={comment.user_dp} alt={comment.user_id} />
+							</div>
+						</div>
+						<div className="comment-comment">{comment.comment}</div>
+					</div>
+				);
+			});	
+		}
+	}
 
 	renderProfile() {
 		var { profile } = this.props;
@@ -65,8 +82,9 @@ class ProfilePage extends Component {
 					
 					<p dangerouslySetInnerHTML={{__html: profile.bio}}></p>
 					<div className="slide_container">{this.renderSlider(profile.user_media)}</div>
-					<div>
-						comments
+					<div className="comments-container">
+						<h4>Comments Section</h4>
+						<div className="comments">{this.renderComments(profile.comments)}</div>
 					</div>
 				</div>
 			)
